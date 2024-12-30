@@ -36,5 +36,5 @@ func SetupEntanglementRoutes(mux *http.ServeMux, entanglePath string) {
 		panic(err)
 	}
 
-	mux.Handle(entanglePath+"/static/", http.StripPrefix("/static/", http.FileServer(http.FS(fsys))))
+	mux.Handle(entanglePath, http.StripPrefix(entanglePath, http.FileServer(http.FS(fsys))))
 }
