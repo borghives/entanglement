@@ -8,7 +8,7 @@ class Entanglement {
         let retheader = {}
         const sessionNonce  = GetSessionNonce()
         if (sessionNonce) {
-            retheader['x-teb-session-nonce'] = sessionNonce
+            retheader['x-entanglement-nonce'] = sessionNonce
         }
 
         if (!this.html) {
@@ -17,7 +17,7 @@ class Entanglement {
         
         const objToken = this.html.getAttribute("token")
         if (objToken) {
-            retheader['x-teb-obj-token'] = objToken
+            retheader['x-entanglement-token'] = objToken
         }
 
         return retheader
@@ -55,7 +55,7 @@ class Entanglement {
     }
 
     static FromHtml(startElement) {
-        let element = startElement?.closest("entangled-system")
+        let element = startElement?.closest("entanglment-system")
         if (element) {
             return new Entanglement(element)
         }
@@ -64,7 +64,7 @@ class Entanglement {
 
 
 function GetSessionNonce() {
-    const nonce = document.getElementsByTagName("teb-session-nonce")
+    const nonce = document.getElementsByTagName("entanglment-nonce")
     for (let i=0; i < nonce.length; i++) {
         return nonce[i].textContent
     }
