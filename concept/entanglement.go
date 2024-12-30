@@ -7,11 +7,11 @@ import (
 	"log"
 	"strings"
 
-	"github.com/borghives/sitepages"
+	"github.com/borghives/websession"
 )
 
 type Entanglement struct {
-	SystemSession sitepages.WebSession
+	SystemSession websession.WebSession
 	Frame         string
 	Nonce         string
 	Token         string
@@ -60,12 +60,12 @@ func (e *Entanglement) SetProperty(key string, state string) {
 }
 
 func (e Entanglement) GenerateToken() string {
-	salt := sitepages.GenerateSalt(e.Nonce, e.Frame)
+	salt := websession.GenerateSalt(e.Nonce, e.Frame)
 	return e.SystemSession.GenerateTokenFromSalt(salt)
 }
 
 func (e Entanglement) GenerateCorrelation(property string) string {
-	salt := sitepages.GenerateSalt(e.Frame, property)
+	salt := websession.GenerateSalt(e.Frame, property)
 
 	if len(e.Properties) > 0 {
 		salt += e.CalculatePropertiesState()
