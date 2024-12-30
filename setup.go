@@ -30,11 +30,11 @@ func SetupEntanglmentTemplates(templ *template.Template) *template.Template {
 	return template.Must(templ.ParseFS(fsys, "*.html"))
 }
 
-func SetupEntanglementRoutes(mux *http.ServeMux, entanglePath string) {
+func SetupEntanglementRoutes(mux *http.ServeMux) {
 	fsys, err := fs.Sub(static, "static")
 	if err != nil {
 		panic(err)
 	}
 
-	mux.Handle(entanglePath, http.StripPrefix(entanglePath, http.FileServer(http.FS(fsys))))
+	mux.Handle("/entanglement/", http.StripPrefix("/entanglement/", http.FileServer(http.FS(fsys))))
 }
