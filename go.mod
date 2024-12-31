@@ -1,6 +1,6 @@
 module github.com/borghives/entanglement
 
-go 1.23.2
+go 1.23.4
 
 require github.com/borghives/websession v0.0.3
 
