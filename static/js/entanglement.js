@@ -66,6 +66,6 @@ class Entanglement {
 function GetSessionNonce() {
     const nonce = document.getElementsByTagName("entanglement-nonce")
     for (let i=0; i < nonce.length; i++) {
-        return nonce[i].getAttribute("nonce")
+        return nonce[i].getAttribute("token")
     }
 }
