@@ -15,7 +15,7 @@ var static embed.FS
 //go:embed templates/*
 var templates embed.FS
 
-func SetupEntanglmentTemplates(templ *template.Template) *template.Template {
+func SetupEntanglementTemplates(templ *template.Template) *template.Template {
 	templ = templ.Funcs(template.FuncMap{
 		"entanglementframe": func(e concept.Entanglement, frame string) string {
 			return e.CreatSubFrame(frame).GenerateToken()

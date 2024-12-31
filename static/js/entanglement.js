@@ -55,7 +55,7 @@ class Entanglement {
     }
 
     static FromHtml(startElement) {
-        let element = startElement?.closest("entanglment-system")
+        let element = startElement?.closest("entanglement-system")
         if (element) {
             return new Entanglement(element)
         }
@@ -64,7 +64,7 @@ class Entanglement {
 
 
 function GetSessionNonce() {
-    const nonce = document.getElementsByTagName("entanglment-nonce")
+    const nonce = document.getElementsByTagName("entanglement-nonce")
     for (let i=0; i < nonce.length; i++) {
         return nonce[i].textContent
     }
