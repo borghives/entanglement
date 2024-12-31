@@ -11,7 +11,7 @@ import (
 )
 
 type Entanglement struct {
-	SystemSession websession.WebSession
+	SystemSession websession.Session
 	Frame         string
 	Nonce         string
 	Token         string
