@@ -17,7 +17,7 @@ var templates embed.FS
 
 func SetupEntanglmentTemplates(templ *template.Template) *template.Template {
 	templ = templ.Funcs(template.FuncMap{
-		"entangledsytem": func(e concept.Entanglement, frame string) string {
+		"entanglementframe": func(e concept.Entanglement, frame string) string {
 			return e.CreatSubFrame(frame).GenerateToken()
 		},
 	})
