@@ -40,10 +40,18 @@ func SetupEntanglementRoutes(mux *http.ServeMux) {
 	mux.Handle("GET /entanglement/static/", http.StripPrefix("/entanglement/static/", http.FileServer(http.FS(fsys))))
 }
 
-func CreateEntanglement(session websession.Session) concept.Entanglement {
-	return concept.Entanglement{
+func CreateEntanglement(session *websession.Session) *concept.Entanglement {
+	return &concept.Entanglement{
 		SystemSession: session,
 		Nonce:         websession.GetRandomHexString(),
+		Token:         session.GenerateSessionToken(),
+	}
+}
+
+func CreateEntanglementWithNonce(session *websession.Session, nonce string) *concept.Entanglement {
+	return &concept.Entanglement{
+		SystemSession: session,
+		Nonce:         nonce,
 		Token:         session.GenerateSessionToken(),
 	}
 }

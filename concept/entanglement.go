@@ -11,7 +11,7 @@ import (
 )
 
 type Entanglement struct {
-	SystemSession websession.Session
+	SystemSession *websession.Session
 	Frame         string
 	Nonce         string
 	Token         string
@@ -30,12 +30,13 @@ func (e Entanglement) CalculatePropertiesState() string {
 	return string(hex.EncodeToString(representativeState[:]))
 }
 
-func (e *Entanglement) SetFrame(frame string) {
+func (e *Entanglement) SetFrame(frame string) *Entanglement {
 	e.Frame = frame
+	return e
 }
 
-func (e *Entanglement) CreatSubFrame(frame string) Entanglement {
-	return Entanglement{
+func (e *Entanglement) CreatSubFrame(frame string) *Entanglement {
+	return &Entanglement{
 		SystemSession: e.SystemSession,
 		Frame:         frame,
 		Nonce:         e.Nonce,
@@ -44,11 +45,12 @@ func (e *Entanglement) CreatSubFrame(frame string) Entanglement {
 	}
 }
 
-func (e *Entanglement) ResetProperty() {
+func (e *Entanglement) ResetProperty() *Entanglement {
 	e.Properties = nil
+	return e
 }
 
-func (e *Entanglement) SetProperty(key string, state string) {
+func (e *Entanglement) SetProperty(key string, state string) *Entanglement {
 	key = replaceChar(key, ':', '_')
 	state = replaceChar(state, ':', '_')
 
@@ -57,6 +59,7 @@ func (e *Entanglement) SetProperty(key string, state string) {
 	}
 
 	e.Properties[key] = state
+	return e
 }
 
 func (e Entanglement) GenerateToken() string {
