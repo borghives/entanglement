@@ -18,6 +18,14 @@ type Entanglement struct {
 	Properties    map[string]string
 }
 
+func CreateEntanglement(session websession.Session) Entanglement {
+	return Entanglement{
+		SystemSession: session,
+		Nonce:         websession.GetRandomHexString(),
+		Token:         session.GenerateSessionToken(),
+	}
+}
+
 func (e Entanglement) CalculatePropertiesState() string {
 	representativeState := [32]byte{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
 	for key, value := range e.Properties {
