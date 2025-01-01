@@ -7,6 +7,7 @@ import (
 	"net/http"
 
 	"github.com/borghives/entanglement/concept"
+	"github.com/borghives/websession"
 )
 
 //go:embed static/*
@@ -37,4 +38,12 @@ func SetupEntanglementRoutes(mux *http.ServeMux) {
 	}
 
 	mux.Handle("GET /entanglement/static/", http.StripPrefix("/entanglement/static/", http.FileServer(http.FS(fsys))))
+}
+
+func CreateEntanglement(session websession.Session) concept.Entanglement {
+	return concept.Entanglement{
+		SystemSession: session,
+		Nonce:         websession.GetRandomHexString(),
+		Token:         session.GenerateSessionToken(),
+	}
 }
