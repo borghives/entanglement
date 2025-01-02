@@ -55,3 +55,11 @@ func CreateEntanglementWithNonce(session *websession.Session, nonce string) *con
 		Token:         session.GenerateSessionToken(),
 	}
 }
+
+func CreateEntanglementWithNonceAndToken(session *websession.Session, nonce string, token string) *concept.Entanglement {
+	return &concept.Entanglement{
+		SystemSession: session,
+		Nonce:         nonce,
+		Token:         token,
+	}
+}
