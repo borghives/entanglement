@@ -4,7 +4,6 @@ import (
 	"crypto/sha256"
 	"encoding/hex"
 	"fmt"
-	"log"
 	"strings"
 
 	"github.com/borghives/websession"
@@ -73,7 +72,7 @@ func (e Entanglement) GenerateCorrelation(property string) string {
 	if len(e.Properties) > 0 {
 		salt += e.CalculatePropertiesState()
 	}
-	log.Println("salt", salt)
+
 	return e.SystemSession.GenerateTokenFromSalt(salt)
 }
 
