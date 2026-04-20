@@ -3,13 +3,13 @@ package entanglement
 import "github.com/borghives/websession"
 
 type Session struct {
-	WebFrame
+	SystemFrame
 	Session websession.Session
 }
 
 func NewSession(session websession.Session) Session {
 	return Session{
-		WebFrame: WebFrame{
+		SystemFrame: SystemFrame{
 			Nonce: websession.GetRandomHexString(),
 			Token: session.GenerateSessionToken(),
 		},
@@ -17,27 +17,27 @@ func NewSession(session websession.Session) Session {
 	}
 }
 
-func EntangleSession(web WebFrame, session websession.Session) Session {
+func EntangleSession(web SystemFrame, session websession.Session) Session {
 	return Session{
-		WebFrame: web,
-		Session:  session,
+		SystemFrame: web,
+		Session:     session,
 	}
 }
 
 func (e Session) CreateSubFrame(frame string) Session {
 	return Session{
-		WebFrame: e.WebFrame.CreateSubFrame(frame),
-		Session:  e.Session,
+		SystemFrame: e.SystemFrame.CreateSubFrame(frame),
+		Session:     e.Session,
 	}
 }
 
 func (e Session) GenerateToken() string {
-	return e.WebFrame.GenerateToken(e.Session)
+	return e.SystemFrame.GenerateToken(e.Session)
 }
 
 func (e Session) GenerateCorrelation(property string) string {
-	salt := websession.GenerateSalt(e.WebFrame.Frame, property)
+	salt := websession.GenerateSalt(e.SystemFrame.Frame, property)
 
-	salt += e.WebFrame.CalculateEntangledState()
+	salt += e.SystemFrame.CalculateEntangledState()
 	return e.Session.GenerateTokenFromSalt(salt)
 }
