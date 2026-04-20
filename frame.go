@@ -16,7 +16,7 @@ type SystemFrame struct {
 	Properties map[string]string
 }
 
-func CreateWeb(nonce string, token string) SystemFrame {
+func Create(nonce string, token string) SystemFrame {
 	return SystemFrame{
 		Nonce: nonce,
 		Token: token,
