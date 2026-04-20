@@ -38,6 +38,6 @@ func (e Session) GenerateToken() string {
 func (e Session) GenerateCorrelation(property string) string {
 	salt := websession.GenerateSalt(e.WebFrame.Frame, property)
 
-	salt += e.WebFrame.CalculatePropertiesState()
+	salt += e.WebFrame.CalculateEntangledState()
 	return e.Session.GenerateTokenFromSalt(salt)
 }

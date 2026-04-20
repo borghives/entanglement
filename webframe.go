@@ -50,7 +50,7 @@ func (e WebFrame) VerifyTokenAlignment(session websession.Session) error {
 	return nil
 }
 
-func (e WebFrame) CalculatePropertiesState() string {
+func (e WebFrame) CalculateEntangledState() string {
 	if len(e.Properties) == 0 {
 		return ""
 	}
@@ -66,7 +66,7 @@ func (e WebFrame) CalculatePropertiesState() string {
 	return string(hex.EncodeToString(representativeState[:]))
 }
 
-func (e *WebFrame) SetProperty(key string, state string) *WebFrame {
+func (e *WebFrame) EntangleProperty(key string, state string) *WebFrame {
 	key = replaceChar(key, ':', '_')
 	state = replaceChar(state, ':', '_')
 
