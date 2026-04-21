@@ -17,9 +17,9 @@ func NewSession(session websession.Session) Session {
 	}
 }
 
-func EntangleSession(web SystemFrame, session websession.Session) Session {
+func EntangleSession(frame SystemFrame, session websession.Session) Session {
 	return Session{
-		SystemFrame: web,
+		SystemFrame: frame,
 		Session:     session,
 	}
 }
@@ -36,7 +36,7 @@ func (e Session) GenerateToken() string {
 }
 
 func (e Session) GenerateCorrelation(property string) string {
-	salt := websession.GenerateSalt(e.SystemFrame.Frame, property)
+	salt := websession.GenerateSalt(e.SystemFrame.Name, property)
 
 	salt += e.SystemFrame.CalculateEntangledState()
 	return e.Session.GenerateTokenFromSalt(salt)

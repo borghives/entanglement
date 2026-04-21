@@ -10,7 +10,7 @@ import (
 )
 
 type SystemFrame struct {
-	Frame      string
+	Name       string
 	Nonce      string
 	Token      string
 	Properties map[string]string
@@ -25,19 +25,19 @@ func Create(nonce string, token string) SystemFrame {
 
 func (e SystemFrame) CreateSubFrame(frame string) SystemFrame {
 	return SystemFrame{
-		Frame: frame,
+		Name:  frame,
 		Nonce: e.Nonce,
 		Token: e.Token,
 	}
 }
 
 func (e SystemFrame) GenerateToken(session websession.Session) string {
-	salt := websession.GenerateSalt(e.Nonce, e.Frame)
+	salt := websession.GenerateSalt(e.Nonce, e.Name)
 	return session.GenerateTokenFromSalt(salt)
 }
 
 func (e SystemFrame) VerifyTokenAlignment(session websession.Session) error {
-	if e.Nonce == "" || e.Frame == "" || e.Token == "" {
+	if e.Nonce == "" || e.Name == "" || e.Token == "" {
 		return fmt.Errorf("Empty nonce, frame or token")
 	}
 
@@ -79,7 +79,7 @@ func (e *SystemFrame) EntangleProperty(key string, state string) *SystemFrame {
 }
 
 func (e *SystemFrame) SetFrame(frame string) *SystemFrame {
-	e.Frame = frame
+	e.Name = frame
 	return e
 }
 

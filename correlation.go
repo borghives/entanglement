@@ -2,8 +2,6 @@ package entanglement
 
 import (
 	"maps"
-
-	"go.mongodb.org/mongo-driver/v2/bson"
 )
 
 type StateCorrelation map[string]string               //From one state (ID) relating to the next state (ID)
@@ -38,7 +36,6 @@ func (e *EntangleProperties) UpdateCorrelationProperties(typeCorrelation TypeSta
 }
 
 type Correlatable interface {
-	GetID() bson.ObjectID
 	TransitionStates(frame Session) TypeStateCorrelation
-	CheckExpectation(frame Session) error
+	CheckTransition(frame Session) error
 }
