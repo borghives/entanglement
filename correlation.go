@@ -40,4 +40,5 @@ func (e *EntangleProperties) UpdateCorrelationProperties(typeCorrelation TypeSta
 type Correlatable interface {
 	GetID() bson.ObjectID
 	TransitionStates(frame Session) TypeStateCorrelation
+	CheckExpectation(frame Session) error
 }
