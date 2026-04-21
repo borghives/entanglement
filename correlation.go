@@ -1,6 +1,8 @@
 package entanglement
 
 import (
+	"maps"
+
 	"go.mongodb.org/mongo-driver/v2/bson"
 )
 
@@ -18,23 +20,21 @@ func (e TypeStateCorrelation) AddCorrelation(frameName string, originState strin
 	e[frameName] = properties
 }
 
+func (e TypeStateCorrelation) Update(source TypeStateCorrelation) {
+	maps.Copy(e, source)
+}
+
 type EntangleProperties struct {
 	Token        string               `xml:"-" json:"Token" bson:"-" `
 	Correlations TypeStateCorrelation `xml:"-" json:"Correlations,omitempty" bson:"-" `
 }
 
-func (e *EntangleProperties) SetCorrelationProperties(name string, properties StateCorrelation) {
+func (e *EntangleProperties) UpdateCorrelationProperties(typeCorrelation TypeStateCorrelation) {
 	if e.Correlations == nil {
 		e.Correlations = make(TypeStateCorrelation)
 	}
 
-	e.Correlations[name] = properties
-}
-
-func (e *EntangleProperties) UpdateCorrelationProperties(typeCorrelation TypeStateCorrelation) {
-	for key, value := range typeCorrelation {
-		e.SetCorrelationProperties(key, value)
-	}
+	e.Correlations.Update(typeCorrelation)
 }
 
 type Correlatable interface {
