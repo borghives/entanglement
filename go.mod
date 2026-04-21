@@ -2,10 +2,7 @@ module github.com/borghives/entanglement
 
 go 1.26.1
 
-require (
-	github.com/borghives/websession v1.1.6
-	go.mongodb.org/mongo-driver/v2 v2.5.1
-)
+require github.com/borghives/websession v1.1.6
 
 require (
 	cloud.google.com/go/auth v0.20.0 // indirect
@@ -40,6 +37,7 @@ require (
 	github.com/xdg-go/stringprep v1.0.4 // indirect
 	github.com/youmark/pkcs8 v0.0.0-20240726163527-a2c0da244d78 // indirect
 	github.com/zalando/go-keyring v0.2.8 // indirect
+	go.mongodb.org/mongo-driver/v2 v2.5.1 // indirect
 	go.opentelemetry.io/auto/sdk v1.2.1 // indirect
 	go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc v0.68.0 // indirect
 	go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp v0.68.0 // indirect

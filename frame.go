@@ -66,6 +66,14 @@ func (e SystemFrame) CalculateEntangledState() string {
 	return string(hex.EncodeToString(representativeState[:]))
 }
 
+func (e SystemFrame) StateString() string {
+	var propertiesString strings.Builder
+	for key, value := range e.Properties {
+		propertiesString.WriteString(key + ":" + value + ",")
+	}
+	return fmt.Sprintf("Name: %s Nonce: %s Token: %s Properties: (%s)", e.Name, e.Nonce, e.Token, propertiesString.String())
+}
+
 func (e *SystemFrame) EntangleProperty(key string, state string) *SystemFrame {
 	key = replaceChar(key, ':', '_')
 	state = replaceChar(state, ':', '_')
