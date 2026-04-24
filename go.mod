@@ -2,7 +2,7 @@ module github.com/borghives/entanglement
 
 go 1.26.1
 
-require github.com/borghives/websession v1.1.10
+require github.com/borghives/websession v1.1.11
 
 require (
 	cloud.google.com/go/auth v0.20.0 // indirect
@@ -10,7 +10,7 @@ require (
 	cloud.google.com/go/compute/metadata v0.9.0 // indirect
 	cloud.google.com/go/iam v1.9.0 // indirect
 	cloud.google.com/go/secretmanager v1.19.0 // indirect
-	github.com/borghives/kosmos-go v1.2.4 // indirect
+	github.com/borghives/kosmos-go v1.2.5 // indirect
 	github.com/cespare/xxhash/v2 v2.3.0 // indirect
 	github.com/danieljoos/wincred v1.2.3 // indirect
 	github.com/felixge/httpsnoop v1.0.4 // indirect
