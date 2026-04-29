@@ -12,8 +12,8 @@ cloud.google.com/go/secretmanager v1.19.0 h1:dm9BK06xl+hrxp2unT2psjZeypPj5c6uPiA
 cloud.google.com/go/secretmanager v1.19.0/go.mod h1:9OmSuOeiiUicANglrbdKWSnT3gYkRcXuUQDk7dDW0zU=
 github.com/borghives/kosmos-go v1.3.5 h1:aJQwFr5tEqGqwyIS8GIDx6MaCfme5m2LJgqO8fE+UNY=
 github.com/borghives/kosmos-go v1.3.5/go.mod h1:4fv07ooIYd2ljdBxuvoVvCEHEmx4Z7CEcYgcU1Uevz0=
-github.com/borghives/websession v1.1.20 h1:AtU/K6XD6+++kEz1Ywu6f9uDGhTkBRS7JCfWqaAivGk=
-github.com/borghives/websession v1.1.20/go.mod h1:sQycs4iKIvgsRFY5TKZmYUkZIjmSbDeEmMU1WgFDWcs=
+github.com/borghives/websession v1.1.21 h1:kg5l+W+fwsbetuT3aGTf/7Z2ZYa0O67J/Lm6wDHiHTY=
+github.com/borghives/websession v1.1.21/go.mod h1:qtKnXxl2j9oceBdj5PCSijhWf9HMVsuCfMU4XoATo1Y=
 github.com/cespare/xxhash/v2 v2.3.0 h1:UL815xU9SqsFlibzuggzjXhog7bL6oX9BbNZnL2UFvs=
 github.com/cespare/xxhash/v2 v2.3.0/go.mod h1:VGX0DQ3Q6kWi7AoAeZDth3/j3BFtOZR5XLFGgcrjCOs=
 github.com/cncf/xds/go v0.0.0-20251210132809-ee656c7534f5 h1:6xNmx7iTtyBRev0+D/Tv1FZd4SCg8axKApyNyRsAt/w=
