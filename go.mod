@@ -10,7 +10,7 @@ require (
 	cloud.google.com/go/compute/metadata v0.9.0 // indirect
 	cloud.google.com/go/iam v1.10.0 // indirect
 	cloud.google.com/go/secretmanager v1.20.0 // indirect
-	github.com/borghives/kosmos-go v1.3.7 // indirect
+	github.com/borghives/kosmos-go v1.3.8 // indirect
 	github.com/cespare/xxhash/v2 v2.3.0 // indirect
 	github.com/danieljoos/wincred v1.2.3 // indirect
 	github.com/felixge/httpsnoop v1.0.4 // indirect
