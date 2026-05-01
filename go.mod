@@ -2,7 +2,7 @@ module github.com/borghives/entanglement
 
 go 1.26.1
 
-require github.com/borghives/websession v1.1.25
+require github.com/borghives/websession v1.1.26
 
 require (
 	cloud.google.com/go/auth v0.20.0 // indirect
