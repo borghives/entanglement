@@ -31,5 +31,8 @@ stage:
 
 commit:
 	gca && git push
+	
+test:
+	go test ./...
 
-submit: update stage commit tag 
+submit: sync update test stage commit tag 
