@@ -4,7 +4,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/borghives/websession"
+	"git.mypierian.com/borghives/websession"
 )
 
 func TestSystemFrame_Create(t *testing.T) {
@@ -78,7 +78,7 @@ func TestSystemFrame_CalculateEntangledState(t *testing.T) {
 
 func TestSystemFrame_TokenVerification(t *testing.T) {
 	session := websession.NewWebSession("127.0.0.1", "ua")
-	
+
 	sf := Create("", "")
 	err := sf.VerifyTokenAlignment(*session)
 	if err == nil || err.Error() != "Empty nonce, frame or token" {

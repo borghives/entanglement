@@ -1,6 +1,6 @@
 package entanglement
 
-import "github.com/borghives/websession"
+import "git.mypierian.com/borghives/websession"
 
 type Session struct {
 	SystemFrame

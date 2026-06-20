@@ -2,7 +2,7 @@
 
 Entangle complexity between different systems knowledge to assure higher probability of intended operation. 
 
-`entanglement` is a Go library designed to manage state, cryptographically link (entangle) properties, and define state correlations for complex systems. It relies on `github.com/borghives/websession` to verify context integrity via token validation.
+`entanglement` is a Go library designed to manage state, cryptographically link (entangle) properties, and define state correlations for complex systems. It relies on `git.mypierian.com/borghives/websession` to verify context integrity via token validation.
 
 ## Installation
 
@@ -64,4 +64,4 @@ props.UpdateCorrelationProperties(correlations)
 ```
 
 ## Dependencies
-- [github.com/borghives/websession](https://github.com/borghives/websession)
+- [git.mypierian.com/borghives/websession](https://git.mypierian.com/borghives/websession)

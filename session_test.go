@@ -3,7 +3,7 @@ package entanglement
 import (
 	"testing"
 
-	"github.com/borghives/websession"
+	"git.mypierian.com/borghives/websession"
 )
 
 func TestNewSession(t *testing.T) {
@@ -42,7 +42,7 @@ func TestSession_GenerateToken(t *testing.T) {
 	ws := websession.NewWebSession("127.0.0.1", "ua")
 	session := NewSession(*ws)
 	session.SystemFrame.Name = "test"
-	
+
 	tok := session.GenerateToken()
 	if tok == "" {
 		t.Errorf("expected generated token")
@@ -53,7 +53,7 @@ func TestSession_GenerateCorrelation(t *testing.T) {
 	ws := websession.NewWebSession("127.0.0.1", "ua")
 	session := NewSession(*ws)
 	session.SystemFrame.Name = "test"
-	
+
 	corr := session.GenerateCorrelation("prop1")
 	if corr == "" {
 		t.Errorf("expected generated correlation")

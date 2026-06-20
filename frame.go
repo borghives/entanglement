@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/borghives/websession"
+	"git.mypierian.com/borghives/websession"
 )
 
 type SystemFrame struct {
