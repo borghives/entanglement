@@ -7,7 +7,7 @@ Entangle complexity between different systems knowledge to assure higher probabi
 ## Installation
 
 ```bash
-go get github.com/borghives/entanglement
+go get git.mypierian.com/borghives/entanglement
 ```
 
 ## Core Concepts
@@ -31,7 +31,7 @@ Frames can generate and verify tokens using a `websession.Session`. The token is
 
 ```go
 import (
-	"github.com/borghives/entanglement"
+	"git.mypierian.com/borghives/entanglement"
 )
 
 // Initialize a base frame
@@ -50,7 +50,7 @@ stateHash := subFrame.CalculateEntangledState()
 
 ```go
 import (
-	"github.com/borghives/entanglement"
+	"git.mypierian.com/borghives/entanglement"
 )
 
 correlations := make(entanglement.TypeStateCorrelation)

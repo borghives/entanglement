@@ -1,4 +1,4 @@
-module github.com/borghives/entanglement
+module git.mypierian.com/borghives/entanglement
 
 go 1.26.1
 
